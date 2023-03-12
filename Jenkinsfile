@@ -10,12 +10,7 @@ pipeline {
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
-                  userRemoteConfigs: [[url: 'https://github.com/Amateratsu888/mean-crud-user-front.git']]])
-      }
-    }
+    
     
     stage('Install Dependencies') {
       steps {
