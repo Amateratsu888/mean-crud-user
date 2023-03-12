@@ -1,5 +1,6 @@
 pipeline {
   
+  agent any 
   environment {
     DOCKER_REGISTRY = "sheguey888"
     DOCKER_IMAGE_NAME = "sheguey888/mean-crud-front"
@@ -9,7 +10,9 @@ pipeline {
   }
 
   stages {
-    
+     stage("clone code") {
+            git , url: 'https://github.com/Amateratsu888/mean-crud-user-front.git', branch:'master'
+    }
     
     stage('Install Dependencies') {
       steps {
