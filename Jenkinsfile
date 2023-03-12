@@ -11,7 +11,7 @@ pipeline {
 
   stages {
      stage("clone code") {
-            git , url: 'https://github.com/Amateratsu888/mean-crud-user-front.git', branch:'master'
+            git url: 'https://github.com/Amateratsu888/mean-crud-user-front.git', branch:'master'
     }
     
     stage('Install Dependencies') {
