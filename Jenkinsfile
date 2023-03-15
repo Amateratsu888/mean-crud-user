@@ -23,7 +23,7 @@ pipeline {
     stage('Code Quality Analysis') {
       steps {
         withSonarQubeEnv('sonarServer') {
-          sh 'npm run sonar '
+          sh 'npm run sonar -Dsonar.login=admin -Dsonar.password=admin'
         }
       }
     }
