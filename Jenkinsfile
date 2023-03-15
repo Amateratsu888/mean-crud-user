@@ -15,7 +15,7 @@ pipeline {
     
     stage('Code Quality Analysis') {
       steps {
-        withSonarQubeEnv('SonarQube') {
+        withSonarQubeEnv('sonarServer') {
           sh 'npm run sonarqube -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.projectName="$SONAR_PROJECT_NAME" -Dsonar.host.url=http://localhost:9000'
         }
       }
