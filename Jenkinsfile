@@ -11,7 +11,9 @@ pipeline {
 
   stages {
     
-  
+   stage ('Install dependency') {
+        sh 'npm install'
+    } 
     
     stage('Code Quality Analysis') {
       steps {
