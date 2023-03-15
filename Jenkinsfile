@@ -13,7 +13,7 @@ pipeline {
     
    stage ('Install dependency') {
      steps {
-          sh 'export PATH="$PATH:/usr/local/bin"'
+          sh 'export PATH="$PATH:/home/vagrant/.nvm/versions/node/v16.14.2/bin/node"'
           sh 'npm install'
      }
      
