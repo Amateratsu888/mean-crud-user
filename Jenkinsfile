@@ -39,9 +39,11 @@ pipeline {
     stage('Push Docker Image') {
       steps {
         script {
-          docker.withRegistry("//https://hub.docker.com/","$DOCKERHUB_CREDENTIALS") {
-            dockerImage.push()
+          withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
+            sh 'docker login -u sheguey888 -p ${dockerhub-pwd} '
+            
           }
+          sh 'docker push $DOCKER_IMAGE_NAME:latest'
         }
       }
     }
