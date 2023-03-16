@@ -31,7 +31,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         
-          sh 'sudo docker build -t $DOCKER_IMAGE_NAME:latest .'
+          sh 'docker build -t $DOCKER_IMAGE_NAME:latest .'
        
       }
     }
@@ -40,10 +40,10 @@ pipeline {
       steps {
         script {
           withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
-            sh 'sudo docker login -u sheguey888 -p ${dockerhub-pwd} '
+            sh 'docker login -u sheguey888 -p ${dockerhub-pwd} '
             
           }
-          sh 'sudo docker push $DOCKER_IMAGE_NAME:latest'
+          sh 'docker push $DOCKER_IMAGE_NAME:latest'
         }
       }
     }
